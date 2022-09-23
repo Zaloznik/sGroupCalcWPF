@@ -74,7 +74,7 @@
                      Grid.Row="4"
                      Grid.Column="0"
                      Grid.ColumnSpan="3"
-                     IsReadOnly="True">
+                     IsReadOnly="True" TextChanged="outputRtb_TextChanged">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>

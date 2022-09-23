@@ -31,7 +31,7 @@ namespace sGroupCalcWPF
 
         #region Private
 
-        private double investment;
+        private double investment, startingInvestment;
         private double averageProfit;
         private int numOfMonths;
         private double backofficeBalance;
@@ -55,6 +55,7 @@ namespace sGroupCalcWPF
             try
             {
                 investment = Convert.ToDouble(investmentTextBox.Text);
+                startingInvestment = investment;
             }
             catch(Exception ex)
             {
@@ -157,6 +158,11 @@ namespace sGroupCalcWPF
 
             return investment;
         }
+
+        private void outputRtb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            outputRtb.ScrollToEnd();
+        }
         #endregion
 
         #region Print
@@ -166,7 +172,7 @@ namespace sGroupCalcWPF
             {
                 if(i==0)
                 {
-                    outputRtb.AppendText((i+1).ToString() + " - mesec -> Profit: " + Math.Round(listOfBalancePerMonth[i]-listOfBalancePerMonth[i], 2).ToString() + " -> Balance: " + Math.Round(listOfBalancePerMonth[i],2).ToString()+"\n");
+                    outputRtb.AppendText((i+1).ToString() + " - mesec -> Profit: " + Math.Round(listOfBalancePerMonth[i]-startingInvestment, 2).ToString() + " -> Balance: " + Math.Round(listOfBalancePerMonth[i],2).ToString()+"\n");
                 }
                 else
                 {
