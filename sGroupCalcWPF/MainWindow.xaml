@@ -21,6 +21,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Vlozek:"
                    Grid.Column="0"
@@ -81,5 +82,11 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <Button x:Name="registerBtn"
+                Grid.Column="0"
+                Grid.Row="5"
+                Grid.ColumnSpan="3"
+                Content="Registracija"
+                Margin="10,5,10,5" Click="registerBtn_Click"/>
     </Grid>
 </Window>
