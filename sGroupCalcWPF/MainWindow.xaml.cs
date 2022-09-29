@@ -55,6 +55,7 @@ namespace sGroupCalcWPF
             try
             {
                 investment = Convert.ToDouble(investmentTextBox.Text);
+                investment = investment * 100 / 105;
                 startingInvestment = investment;
             }
             catch(Exception ex)
@@ -133,6 +134,7 @@ namespace sGroupCalcWPF
             }
 
             outputRtb.Document.Blocks.Clear();
+            outputRtb.AppendText("\tInvestment: " + Math.Round(startingInvestment,2).ToString()+" -------------------------------------- ");
             Print(listOfBalancePerMonth);
         }
         #endregion
@@ -172,7 +174,7 @@ namespace sGroupCalcWPF
             {
                 if(i==0)
                 {
-                    outputRtb.AppendText((i+1).ToString() + " - mesec -> Profit: " + Math.Round(listOfBalancePerMonth[i]-startingInvestment, 2).ToString() + " -> Balance: " + Math.Round(listOfBalancePerMonth[i],2).ToString()+"\n");
+                    outputRtb.AppendText("\n"+(i+1).ToString() + " - mesec -> Profit: " + Math.Round(listOfBalancePerMonth[i]-startingInvestment, 2).ToString() + " -> Balance: " + Math.Round(listOfBalancePerMonth[i],2).ToString());
                 }
                 else
                 {
