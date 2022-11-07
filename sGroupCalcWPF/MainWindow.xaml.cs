@@ -160,12 +160,16 @@ namespace sGroupCalcWPF
 
             return investment;
         }
+        #endregion
 
+        #region RichTextBoxScrollToEnd
         private void outputRtb_TextChanged(object sender, TextChangedEventArgs e)
         {
             outputRtb.ScrollToEnd();
         }
+        #endregion
 
+        #region Register
         private void registerBtn_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://backoffice.s-group.io/sign_up?referral=93620015&lang=en");
