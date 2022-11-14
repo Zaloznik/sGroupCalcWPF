@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:sGroupCalcWPF"
         mc:Ignorable="d"
         Title="S-Group"
@@ -20,6 +21,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -34,7 +36,8 @@
                  Height="20"
                  Margin="0,5,0,5"
                  TextAlignment="Right"
-                 HorizontalAlignment="Right"/>
+                 HorizontalAlignment="Right"
+                 Text="105" />
         <TextBlock Text="€"
                    Grid.Column="2"
                    Grid.Row="0"
@@ -63,16 +66,26 @@
         <DatePicker x:Name="withdrawalDate"
                     Grid.Column="1"
                     Grid.Row="2"
-                    MaxWidth="110"/>
+                    MaxWidth="110"
+                    SelectedDate="{x:Static sys:DateTime.Now}" />
+        <TextBlock Text="Prva investicija"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   Margin="10,5,10,5" />
+        <CheckBox x:Name="firstInvestmentCheckBox"
+                  Grid.Column="1"
+                  Grid.Row="3"
+                  HorizontalAlignment="Right"
+                  Margin="0,7,0,3" />
         <Button x:Name="calculateBtn"
                 Grid.Column="0"
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.ColumnSpan="3"
                 Content="Izračunaj"
                 Margin="10,5,10,5" Click="calculateBtn_Click"/>
         <RichTextBox x:Name="outputRtb"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
-                     Grid.Row="4"
+                     Grid.Row="5"
                      Grid.Column="0"
                      Grid.ColumnSpan="3"
                      IsReadOnly="True" TextChanged="outputRtb_TextChanged">
@@ -84,7 +97,7 @@
         </RichTextBox>
         <Button x:Name="registerBtn"
                 Grid.Column="0"
-                Grid.Row="5"
+                Grid.Row="6"
                 Grid.ColumnSpan="3"
                 Content="Registracija"
                 Margin="10,5,10,5" Click="registerBtn_Click"/>

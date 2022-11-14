@@ -55,7 +55,10 @@ namespace sGroupCalcWPF
             try
             {
                 investment = Convert.ToDouble(investmentTextBox.Text);
-                investment = investment * 100 / 105;
+                if(firstInvestmentCheckBox.IsChecked == true)
+                {
+                    investment = investment * 100 / 105;
+                }
                 startingInvestment = investment;
             }
             catch(Exception ex)
@@ -88,12 +91,12 @@ namespace sGroupCalcWPF
             if(investment < 100)
             {
                 outputRtb.Document.Blocks.Clear();
-                outputRtb.AppendText("Žal ne moreš investirati manj kot 100€.");
+                outputRtb.AppendText("Žal ne moreš investirati manj kot 105€.");
                 return;
             }
 
             numOfMonths = ((endOfInvestment.Year - DateTime.Now.Year) * 12) + endOfInvestment.Month - DateTime.Now.Month;
-            if(numOfMonths > 1200)
+            if(numOfMonths > 960)
             {
                 outputRtb.Document.Blocks.Clear();
                 outputRtb.AppendText("Tk dougo pa mnda nboš živo xD");
@@ -174,6 +177,7 @@ namespace sGroupCalcWPF
         {
             System.Diagnostics.Process.Start("https://backoffice.s-group.io/sign_up?referral=93620015&lang=en");
         }
+
         #endregion
 
         #region Print
